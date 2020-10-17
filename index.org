@@ -9,34 +9,28 @@
 
 * anaphoric macros
 ** aif
-   #+NAME: aif
+*** definition
+    #+NAME: aif
+    #+BEGIN_SRC lisp
+      (defmacro aif (test-form then-form &optional else-form)
+        `(let ((it ,test-form))
+           (if it ,then-form ,else-form)))
+    #+END_SRC
+*** usage
    #+BEGIN_SRC lisp
-     (defmacro aif (test-form then-form &optional else-form)
-       `(let ((it ,test-form))
-          (if it ,then-form ,else-form)))
-   #+end_src
-
-   #+BEGIN_SRC lisp :noweb yes
-     <<aif>>
-     (aif 11 (princ it))
+     (aif 11 (princ it)) ;; => 11
    #+END_SRC
-
-   #+RESULTS:
-   : 11
 ** awhen
-   #+name:awhen
-   #+BEGIN_SRC lisp
-     (defmacro awhen (test-form &body body)
-       `(aif ,test-form
-             (progn ,@body)))
-   #+END_SRC
+*** definition
+    #+name:awhen
+    #+BEGIN_SRC lisp :noweb yes
+      <<aif>>
 
-   #+BEGIN_SRC lisp :noweb yes
-     <<aif>>
-     <<awhen>>
-
-     (awhen 10 (print it))
-   #+END_SRC
-
-   #+RESULTS:
-   : 10
+      (defmacro awhen (test-form &body body)
+        `(aif ,test-form
+              (progn ,@body)))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (awhen 10 (print it)) ;; => 10
+    #+END_SRC

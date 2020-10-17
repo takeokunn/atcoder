@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-17 Sat 09:56 -->
+<!-- 2020-10-17 Sat 10:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Macros for Atcoder</title>
@@ -253,59 +253,81 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org34dec1d">1. anaphoric macros</a>
+<li><a href="#orgb0c6e30">1. anaphoric macros</a>
 <ul>
-<li><a href="#org14d95bc">1.1. aif</a></li>
-<li><a href="#org746a68c">1.2. awhen</a></li>
+<li><a href="#org3c84a48">1.1. aif</a>
+<ul>
+<li><a href="#org565d857">1.1.1. definition</a></li>
+<li><a href="#org1bac0fc">1.1.2. usage</a></li>
+</ul>
+</li>
+<li><a href="#org3249a73">1.2. awhen</a>
+<ul>
+<li><a href="#org121fb67">1.2.1. definition</a></li>
+<li><a href="#orge385920">1.2.2. usage</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org34dec1d" class="outline-2">
-<h2 id="org34dec1d"><span class="section-number-2">1</span> anaphoric macros</h2>
+<div id="outline-container-orgb0c6e30" class="outline-2">
+<h2 id="orgb0c6e30"><span class="section-number-2">1</span> anaphoric macros</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org14d95bc" class="outline-3">
-<h3 id="org14d95bc"><span class="section-number-3">1.1</span> aif</h3>
+<div id="outline-container-org3c84a48" class="outline-3">
+<h3 id="org3c84a48"><span class="section-number-3">1.1</span> aif</h3>
 <div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org565d857" class="outline-4">
+<h4 id="org565d857"><span class="section-number-4">1.1.1</span> definition</h4>
+<div class="outline-text-4" id="text-1-1-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgf039eab">(defmacro aif (test-form then-form &amp;optional else-form)
+<pre class="src src-lisp" id="org7c77e07">(defmacro aif (test-form then-form &amp;optional else-form)
   `(let ((it ,test-form))
      (if it ,then-form ,else-form)))
 </pre>
 </div>
-
+</div>
+</div>
+<div id="outline-container-org1bac0fc" class="outline-4">
+<h4 id="org1bac0fc"><span class="section-number-4">1.1.2</span> usage</h4>
+<div class="outline-text-4" id="text-1-1-2">
 <div class="org-src-container">
-<pre class="src src-lisp">(defmacro aif (test-form then-form &amp;optional else-form)
-  `(let ((it ,test-form))
-     (if it ,then-form ,else-form)))
-(aif 11 (princ it))
+<pre class="src src-lisp">(aif 11 (princ it)) ;; =&gt; 11
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org746a68c" class="outline-3">
-<h3 id="org746a68c"><span class="section-number-3">1.2</span> awhen</h3>
+</div>
+<div id="outline-container-org3249a73" class="outline-3">
+<h3 id="org3249a73"><span class="section-number-3">1.2</span> awhen</h3>
 <div class="outline-text-3" id="text-1-2">
-<div class="org-src-container">
-<pre class="src src-lisp" id="orgaa10f43">(defmacro awhen (test-form &amp;body body)
-  `(aif ,test-form
-	(progn ,@body)))
-</pre>
 </div>
-
+<div id="outline-container-org121fb67" class="outline-4">
+<h4 id="org121fb67"><span class="section-number-4">1.2.1</span> definition</h4>
+<div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
-<pre class="src src-lisp">(defmacro aif (test-form then-form &amp;optional else-form)
+<pre class="src src-lisp" id="orgdef5b91">(defmacro aif (test-form then-form &amp;optional else-form)
   `(let ((it ,test-form))
      (if it ,then-form ,else-form)))
+
 (defmacro awhen (test-form &amp;body body)
   `(aif ,test-form
 	(progn ,@body)))
-
-(awhen 10 (print it))
 </pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge385920" class="outline-4">
+<h4 id="orge385920"><span class="section-number-4">1.2.2</span> usage</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<div class="org-src-container">
+<pre class="src src-lisp">(awhen 10 (print it)) ;; =&gt; 10
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -313,7 +335,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: takeounn</p>
-<p class="date">Created: 2020-10-17 Sat 09:56</p>
+<p class="date">Created: 2020-10-17 Sat 10:04</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
