@@ -1,4 +1,4 @@
-#+title: Macros for Atcoder
+#+title: Library for Atcoder
 #+author: takeounn
 #+email: bararararatty@gmail.com
 #+startup: content
