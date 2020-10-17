@@ -34,3 +34,241 @@
     #+BEGIN_SRC lisp
       (awhen 10 (print it)) ;; => 10
     #+END_SRC
+** aand
+*** definition
+    #+name: aand
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro aand (&rest args)
+        (cond ((null args) t)
+              ((null (cdr args)) (car args))
+              (t `(aif ,(car args) (aand ,@(cdr args))))))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** acond
+*** definition
+    #+name:acond
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro acond (&rest clauses)
+        (if (null clauses)
+            nil
+            (let ((cl1 (car clauses))
+                  (sym (gensym)))
+              `(let ((,sym ,(car cl1)))
+                 (if ,sym
+                     (let ((it ,sym)) ,@(cdr cl1))
+                     (acond ,@(cdr clauses)))))))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** alambda
+*** definition
+    #+name: alambda
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro alambda (parms &body body)
+        `(labels ((self ,parms ,@body))
+           #'self))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** ablock
+*** definition
+    #+name: ablock
+    #+BEGIN_SRC lisp :noweb yes
+      <<alambda>>
+
+      (defmacro ablock (tag &rest args)
+        `(block ,tag
+           ,(funcall (alambda (args)
+                              (case (length args)
+                                (0 nil)
+                                (1 (car args))
+                                (t `(let ((it ,(car args)))
+                                      ,(self (cdr args))))))
+                     args)))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** amap
+*** definition
+    #+name: amap
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro alambda (parms &body body)
+        `(labels ((self ,parms ,@body))
+           #'self))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** aevery
+*** definition
+    #+name: aevery
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro aevery (form list)
+        `(every #'(lambda (it) ,form) ,list))
+
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** areduce
+*** definition
+    #+name: areduce
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro areduce (form list &key initial-value)
+        `(reduce #'(lambda (it-accum it) ,form) ,list :initial-value ,initial-value))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+* string
+** string+
+*** definition
+    #+name: string+
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro string+ (&rest str)
+        `(concatenate 'string ,@str))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** every-string=
+*** definition
+    #+name: every-string=
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro every-string= (c sequence)
+        `(aevery (string= it ,c) ,sequence))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+* char
+** char+
+*** definition
+    #+name: char+
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro char-1+ (char)
+        `(code-char (1+ (char-code ,char))))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** char-code+
+*** definition
+    #+name: char-code+
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro char-code+ (char num)
+        `(code-char (+ (char-code ,char) ,num)))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+* awesome
+** nested-loops
+*** definition
+    #+name: nested-loops
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro nested-loops (vars values &rest body)
+        (if vars
+            `(loop :for ,(first vars) :from ,(car (first values)) :to ,(cdr (first values))
+                   :do (nested-loops ,(rest vars) ,(rest values) ,@body))
+            `(progn ,@body)))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** nested-nth
+*** definition
+    #+name: nested-nth
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro nested-nth (idxs my-lst)
+        `(if ,idxs (nth (car (reverse ,idxs)) (nested-nth (cdr (reverse ,idxs)) ,my-lst)) ,my-lst))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** get-even-list
+*** definition
+    #+name: get-even-list
+    #+BEGIN_SRC lisp :noweb yes
+      (defun get-even-list (lst)
+        (loop :with return-lst = '()
+              :for index :from 0 :below (length lst)
+              :unless (zerop (mod index 2))
+                :do (setf return-lst (append return-lst (list (nth index lst))))
+              :finally (return return-lst)))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** remove-nth
+*** definition
+    #+name: remove-nth
+    #+BEGIN_SRC lisp :noweb yes
+      (defun remove-nth (n list)
+        (declare
+          (type (integer 0) n)
+          (type list list))
+        (if (or (zerop n) (null list))
+          (cdr list)
+          (cons (car list) (remove-nth (1- n) (cdr list)))))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** check-bit-frag
+*** definition
+    #+name: check-bit-frag
+    #+BEGIN_SRC lisp :noweb yes
+      (defun check-bit-frag (bit index)
+        (logand (ash bit (- 0 index)) 1))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** binary-search
+*** definition
+    #+name: binary-search
+    #+BEGIN_SRC lisp :noweb yes
+      (defun binary-search (item buffer)
+        (do ((low 0)
+             (high (1- (length buffer))))
+            ((> low high))
+          (let ((mid (floor (+ low high) 2)))
+            (cond
+              ((= (nth mid buffer) item) (return mid))
+              ((< (nth mid buffer) item) (setq low (1+ mid)))
+              (t (setq high (1- mid)))))))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** convert-sum-list
+*** definition
+    #+name: convert-sum-list
+    #+BEGIN_SRC lisp :noweb yes
+      (defun convert-sum-list (lst)
+        (cdr (reduce #'(lambda (accum elm)
+                         (append accum (list (+ (car (last accum)) elm))))
+                     lst
+                     :initial-value '(0))))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
+** while
+*** definition
+    #+name: while
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro while (test &body body)
+        `(do ()
+           ((not ,test))
+           ,@body))
+    #+END_SRC
+*** TODO usage
+    #+BEGIN_SRC lisp
+    #+END_SRC
