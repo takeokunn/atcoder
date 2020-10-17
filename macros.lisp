@@ -1,14 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;      anaphoric macros      ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defmacro aif (test-form then-form &optional else-form)
-  `(let ((it ,test-form))
-     (if it ,then-form ,else-form)))
-
-(defmacro awhen (test-form &body body)
-  `(aif ,test-form
-        (progn ,@body)))
-
 (defmacro awhile (expr &body body)
   `(do ((it ,expr ,expr))
      ((not it))
@@ -67,6 +59,9 @@
 (defmacro char-1+ (char)
   `(code-char (1+ (char-code ,char))))
 
+(defmacro char-code+ (char num)
+  `(code-char (+ (char-code ,char) ,num)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;      something      ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -86,3 +81,35 @@
         :unless (zerop (mod index 2))
           :do (setf return-lst (append return-lst (list (nth index lst))))
         :finally (return return-lst)))
+
+(defun remove-nth (n list)
+  (declare
+    (type (integer 0) n)
+    (type list list))
+  (if (or (zerop n) (null list))
+    (cdr list)
+    (cons (car list) (remove-nth (1- n) (cdr list)))))
+
+(defun check-bit-frag (bit index)
+  (logand (ash bit (- 0 index)) 1))
+
+(defun binary-search (item buffer)
+  (do ((low 0)
+       (high (1- (length buffer))))
+      ((> low high))
+    (let ((mid (floor (+ low high) 2)))
+      (cond
+        ((= (nth mid buffer) item) (return mid))
+        ((< (nth mid buffer) item) (setq low (1+ mid)))
+        (t (setq high (1- mid)))))))
+
+(defun convert-sum-list (lst)
+  (cdr (reduce #'(lambda (accum elm)
+                   (append accum (list (+ (car (last accum)) elm))))
+               lst
+               :initial-value '(0))))
+
+(defmacro while (test &body body)
+  `(do ()
+     ((not ,test))
+     ,@body))
