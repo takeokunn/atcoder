@@ -178,8 +178,10 @@
                    :do (nested-loops ,(rest vars) ,(rest values) ,@body))
             `(progn ,@body)))
     #+END_SRC
-*** TODO usage
+*** usage
     #+BEGIN_SRC lisp
+      (nested-loops (x y) ((1 . 2) (1 . 2))
+                    (princ (* x y)))
     #+END_SRC
 ** nested-nth
 *** definition
@@ -188,8 +190,9 @@
       (defmacro nested-nth (idxs my-lst)
         `(if ,idxs (nth (car (reverse ,idxs)) (nested-nth (cdr (reverse ,idxs)) ,my-lst)) ,my-lst))
     #+END_SRC
-*** TODO usage
+*** usage
     #+BEGIN_SRC lisp
+      (nested-nth '(1 1) '(1 (1 2)))
     #+END_SRC
 ** get-even-list
 *** definition
@@ -271,4 +274,50 @@
     #+END_SRC
 *** TODO usage
     #+BEGIN_SRC lisp
+    #+END_SRC
+** 等差数列の和
+*** definition
+    #+name: arithmetic-progression-sum
+    #+BEGIN_SRC lisp :noweb yes
+      (defun arithmetic-progression-sum (a b)
+        (let ((n (1+ (- b a))))
+          (+ (* n (1- a))
+             (/ (* n (1+ n)) 2))))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (arithmetic-progression-sum 2 8) ;; => 35
+    #+END_SRC
+** マンハッタン距離
+*** definition
+    #+name: manhattan-distance
+    #+BEGIN_SRC lisp :noweb yes
+      (defun manhattan-distance (lst)
+        (reduce #'+ (mapcar #'abs lst)))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (manhattan-distance '(3 -1 -4 1 -5 9 2 -6 5 -3)) ;; => 39
+    #+END_SRC
+** ユークリッド距離
+*** definition
+    #+name: euclidean-distance
+    #+BEGIN_SRC lisp :noweb yes
+      (defun euclidean-distance (lst)
+        (sqrt (reduce #'+ (mapcar #'(lambda (x) (coerce (* x x) 'double-float)) lst))))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (euclidean-distance '(3 -1 -4 1 -5 9 2 -6 5 -3)) ;; => 14.387494569938159
+    #+END_SRC
+** チェビシェフ距離
+*** definition
+    #+name: chebyshev-distance
+    #+BEGIN_SRC lisp :noweb yes
+      (defun chebyshev-distance (lst)
+        (reduce #'max (mapcar #'abs lst)))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (chebyshev-distance '(3 -1 -4 1 -5 9 2 -6 5 -3)) ;; => 9
     #+END_SRC

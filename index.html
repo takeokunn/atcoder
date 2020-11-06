@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-10-17 Sat 16:50 -->
+<!-- 2020-11-07 Sat 01:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Library for Atcoder</title>
@@ -253,144 +253,168 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org80e4bfe">1. anaphoric macros</a>
+<li><a href="#org43a4a6c">1. anaphoric macros</a>
 <ul>
-<li><a href="#org229ab10">1.1. aif</a>
+<li><a href="#orgc357a00">1.1. aif</a>
 <ul>
-<li><a href="#org9304238">1.1.1. definition</a></li>
-<li><a href="#org45ee2fa">1.1.2. usage</a></li>
+<li><a href="#org6237a8a">1.1.1. definition</a></li>
+<li><a href="#orgb5b8074">1.1.2. usage</a></li>
 </ul>
 </li>
-<li><a href="#org754eea1">1.2. awhen</a>
+<li><a href="#org996f7ee">1.2. awhen</a>
 <ul>
-<li><a href="#org4e064a3">1.2.1. definition</a></li>
-<li><a href="#orga23154f">1.2.2. usage</a></li>
+<li><a href="#org1e8b1e8">1.2.1. definition</a></li>
+<li><a href="#org86ff131">1.2.2. usage</a></li>
 </ul>
 </li>
-<li><a href="#org074d1a1">1.3. aand</a>
+<li><a href="#org61e6c15">1.3. aand</a>
 <ul>
-<li><a href="#orgfb6ada3">1.3.1. definition</a></li>
-<li><a href="#orgc3e99c9">1.3.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org2dfc1c2">1.3.1. definition</a></li>
+<li><a href="#org65507f2">1.3.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#org457d438">1.4. acond</a>
+<li><a href="#org3609d39">1.4. acond</a>
 <ul>
-<li><a href="#orgd86130a">1.4.1. definition</a></li>
-<li><a href="#org9641365">1.4.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org39eaa1a">1.4.1. definition</a></li>
+<li><a href="#org18c6f54">1.4.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#orga43d557">1.5. alambda</a>
+<li><a href="#org0bc3351">1.5. alambda</a>
 <ul>
-<li><a href="#org7fa0f6b">1.5.1. definition</a></li>
-<li><a href="#orgf2ec60b">1.5.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org623a657">1.5.1. definition</a></li>
+<li><a href="#orgaa3f980">1.5.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#orgc1f83ad">1.6. ablock</a>
+<li><a href="#orgce7ab26">1.6. ablock</a>
 <ul>
-<li><a href="#org98966e2">1.6.1. definition</a></li>
-<li><a href="#orgce57b8a">1.6.2. usage</a></li>
+<li><a href="#org850be4a">1.6.1. definition</a></li>
+<li><a href="#orgda67108">1.6.2. usage</a></li>
 </ul>
 </li>
-<li><a href="#orgcf14352">1.7. amap</a>
+<li><a href="#orgbe35808">1.7. amap</a>
 <ul>
-<li><a href="#org25081b5">1.7.1. definition</a></li>
-<li><a href="#orgbf7e255">1.7.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#orgac33902">1.7.1. definition</a></li>
+<li><a href="#orgb8d07ff">1.7.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#orgaa93c7d">1.8. aevery</a>
+<li><a href="#orgd2c1f16">1.8. aevery</a>
 <ul>
-<li><a href="#org71c1295">1.8.1. definition</a></li>
-<li><a href="#orga098cc0">1.8.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#orga64c0a8">1.8.1. definition</a></li>
+<li><a href="#org1c35d9c">1.8.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#org27127ee">1.9. areduce</a>
+<li><a href="#orgd41f1b5">1.9. areduce</a>
 <ul>
-<li><a href="#org1b61df0">1.9.1. definition</a></li>
-<li><a href="#org664889a">1.9.2. <span class="todo TODO">TODO</span> usage</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org110a9e8">2. string</a>
-<ul>
-<li><a href="#org4328e6d">2.1. string+</a>
-<ul>
-<li><a href="#orgebcc601">2.1.1. definition</a></li>
-<li><a href="#orgaad17ba">2.1.2. <span class="todo TODO">TODO</span> usage</a></li>
-</ul>
-</li>
-<li><a href="#orgfd9cca4">2.2. every-string=</a>
-<ul>
-<li><a href="#org27ece91">2.2.1. definition</a></li>
-<li><a href="#org55d01a9">2.2.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org4abcb9a">1.9.1. definition</a></li>
+<li><a href="#orgd5a11a4">1.9.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org8da1b0d">3. char</a>
+<li><a href="#orgec73dbe">2. string</a>
 <ul>
-<li><a href="#org169806e">3.1. char+</a>
+<li><a href="#org3d64826">2.1. string+</a>
 <ul>
-<li><a href="#orge3239b7">3.1.1. definition</a></li>
-<li><a href="#org3b87e7d">3.1.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org3f76adb">2.1.1. definition</a></li>
+<li><a href="#orgf2ac3eb">2.1.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#orgd4eb111">3.2. char-code+</a>
+<li><a href="#orgb8c7060">2.2. every-string=</a>
 <ul>
-<li><a href="#org385adb3">3.2.1. definition</a></li>
-<li><a href="#orgf159919">3.2.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org1aad49d">2.2.1. definition</a></li>
+<li><a href="#orgfe658c5">2.2.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org06008ae">4. awesome</a>
+<li><a href="#orgde2e8b5">3. char</a>
 <ul>
-<li><a href="#org632390b">4.1. nested-loops</a>
+<li><a href="#orge19ea81">3.1. char+</a>
 <ul>
-<li><a href="#orga6ff16f">4.1.1. definition</a></li>
-<li><a href="#org646559c">4.1.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org73ae460">3.1.1. definition</a></li>
+<li><a href="#orgd70a56b">3.1.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#org5b25267">4.2. nested-nth</a>
+<li><a href="#org0a467bf">3.2. char-code+</a>
 <ul>
-<li><a href="#org4d026d2">4.2.1. definition</a></li>
-<li><a href="#org1bc2d10">4.2.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org7b802ae">3.2.1. definition</a></li>
+<li><a href="#orgc692534">3.2.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#org374c7e4">4.3. get-even-list</a>
-<ul>
-<li><a href="#orga0ef7a4">4.3.1. definition</a></li>
-<li><a href="#org4dfd344">4.3.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#org300f48c">4.4. remove-nth</a>
+<li><a href="#org722941c">4. awesome</a>
 <ul>
-<li><a href="#orgea5f804">4.4.1. definition</a></li>
-<li><a href="#org5066bfe">4.4.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#orgafc4222">4.1. nested-loops</a>
+<ul>
+<li><a href="#org5bc4edc">4.1.1. definition</a></li>
+<li><a href="#org25ce4c2">4.1.2. usage</a></li>
 </ul>
 </li>
-<li><a href="#orgeaebe82">4.5. check-bit-frag</a>
+<li><a href="#org849a85d">4.2. nested-nth</a>
 <ul>
-<li><a href="#org90fdc0a">4.5.1. definition</a></li>
-<li><a href="#org75d955f">4.5.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org6aefc52">4.2.1. definition</a></li>
+<li><a href="#org91be895">4.2.2. usage</a></li>
 </ul>
 </li>
-<li><a href="#org2ab5323">4.6. binary-search</a>
+<li><a href="#orgbcbdf0b">4.3. get-even-list</a>
 <ul>
-<li><a href="#orga6ab1b0">4.6.1. definition</a></li>
-<li><a href="#orgebe84bf">4.6.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#orgdbdebf9">4.3.1. definition</a></li>
+<li><a href="#orga8e4580">4.3.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#org7309326">4.7. convert-sum-list</a>
+<li><a href="#orga227ef7">4.4. remove-nth</a>
 <ul>
-<li><a href="#org09eda57">4.7.1. definition</a></li>
-<li><a href="#orgcf21e17">4.7.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org8ff95c7">4.4.1. definition</a></li>
+<li><a href="#orgce1ff8c">4.4.2. <span class="todo TODO">TODO</span> usage</a></li>
 </ul>
 </li>
-<li><a href="#org0d03354">4.8. while</a>
+<li><a href="#org3930d06">4.5. check-bit-frag</a>
 <ul>
-<li><a href="#org0020358">4.8.1. definition</a></li>
-<li><a href="#org19e7c5d">4.8.2. <span class="todo TODO">TODO</span> usage</a></li>
+<li><a href="#org9e67f5f">4.5.1. definition</a></li>
+<li><a href="#org6f3f75e">4.5.2. <span class="todo TODO">TODO</span> usage</a></li>
+</ul>
+</li>
+<li><a href="#org06279db">4.6. binary-search</a>
+<ul>
+<li><a href="#orgc5a9323">4.6.1. definition</a></li>
+<li><a href="#org93e5183">4.6.2. <span class="todo TODO">TODO</span> usage</a></li>
+</ul>
+</li>
+<li><a href="#org236ca49">4.7. convert-sum-list</a>
+<ul>
+<li><a href="#org60f36b4">4.7.1. definition</a></li>
+<li><a href="#org8a34328">4.7.2. <span class="todo TODO">TODO</span> usage</a></li>
+</ul>
+</li>
+<li><a href="#org2532eaf">4.8. while</a>
+<ul>
+<li><a href="#org0ae5861">4.8.1. definition</a></li>
+<li><a href="#org6030a01">4.8.2. <span class="todo TODO">TODO</span> usage</a></li>
+</ul>
+</li>
+<li><a href="#orgcbb45f9">4.9. 等差数列の和</a>
+<ul>
+<li><a href="#org6e74ec3">4.9.1. definition</a></li>
+<li><a href="#orgb37722e">4.9.2. usage</a></li>
+</ul>
+</li>
+<li><a href="#orga670c7d">4.10. マンハッタン距離</a>
+<ul>
+<li><a href="#orgf2075d2">4.10.1. definition</a></li>
+<li><a href="#org4d3c1f1">4.10.2. usage</a></li>
+</ul>
+</li>
+<li><a href="#org28bbd03">4.11. ユークリッド距離</a>
+<ul>
+<li><a href="#orgf478273">4.11.1. definition</a></li>
+<li><a href="#org5b525b9">4.11.2. usage</a></li>
+</ul>
+</li>
+<li><a href="#org64fcaba">4.12. チェビシェフ距離</a>
+<ul>
+<li><a href="#orgabb49de">4.12.1. definition</a></li>
+<li><a href="#orgf506cbf">4.12.2. usage</a></li>
 </ul>
 </li>
 </ul>
@@ -399,27 +423,27 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org80e4bfe" class="outline-2">
-<h2 id="org80e4bfe"><span class="section-number-2">1</span> anaphoric macros</h2>
+<div id="outline-container-org43a4a6c" class="outline-2">
+<h2 id="org43a4a6c"><span class="section-number-2">1</span> anaphoric macros</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org229ab10" class="outline-3">
-<h3 id="org229ab10"><span class="section-number-3">1.1</span> aif</h3>
+<div id="outline-container-orgc357a00" class="outline-3">
+<h3 id="orgc357a00"><span class="section-number-3">1.1</span> aif</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org9304238" class="outline-4">
-<h4 id="org9304238"><span class="section-number-4">1.1.1</span> definition</h4>
+<div id="outline-container-org6237a8a" class="outline-4">
+<h4 id="org6237a8a"><span class="section-number-4">1.1.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgfea19de">(<span class="org-keyword">defmacro</span> <span class="org-function-name">aif</span> (test-form then-form <span class="org-type">&amp;optional</span> else-form)
+<pre class="src src-lisp" id="org5602d77">(<span class="org-keyword">defmacro</span> <span class="org-function-name">aif</span> (test-form then-form <span class="org-type">&amp;optional</span> else-form)
   `(<span class="org-keyword">let</span> ((it ,test-form))
      (<span class="org-keyword">if</span> it ,then-form ,else-form)))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org45ee2fa" class="outline-4">
-<h4 id="org45ee2fa"><span class="section-number-4">1.1.2</span> usage</h4>
+<div id="outline-container-orgb5b8074" class="outline-4">
+<h4 id="orgb5b8074"><span class="section-number-4">1.1.2</span> usage</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <div class="org-src-container">
 <pre class="src src-lisp">(aif 11 (princ it)) <span class="org-comment-delimiter">;; </span><span class="org-comment">=&gt; 11</span>
@@ -428,15 +452,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org754eea1" class="outline-3">
-<h3 id="org754eea1"><span class="section-number-3">1.2</span> awhen</h3>
+<div id="outline-container-org996f7ee" class="outline-3">
+<h3 id="org996f7ee"><span class="section-number-3">1.2</span> awhen</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org4e064a3" class="outline-4">
-<h4 id="org4e064a3"><span class="section-number-4">1.2.1</span> definition</h4>
+<div id="outline-container-org1e8b1e8" class="outline-4">
+<h4 id="org1e8b1e8"><span class="section-number-4">1.2.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org43a4eb6">(<span class="org-keyword">defmacro</span> <span class="org-function-name">aif</span> (test-form then-form <span class="org-type">&amp;optional</span> else-form)
+<pre class="src src-lisp" id="orgf0a9dde">(<span class="org-keyword">defmacro</span> <span class="org-function-name">aif</span> (test-form then-form <span class="org-type">&amp;optional</span> else-form)
   `(<span class="org-keyword">let</span> ((it ,test-form))
      (<span class="org-keyword">if</span> it ,then-form ,else-form)))
 
@@ -447,8 +471,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orga23154f" class="outline-4">
-<h4 id="orga23154f"><span class="section-number-4">1.2.2</span> usage</h4>
+<div id="outline-container-org86ff131" class="outline-4">
+<h4 id="org86ff131"><span class="section-number-4">1.2.2</span> usage</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <div class="org-src-container">
 <pre class="src src-lisp">(awhen 10 (print it)) <span class="org-comment-delimiter">;; </span><span class="org-comment">=&gt; 10</span>
@@ -457,15 +481,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org074d1a1" class="outline-3">
-<h3 id="org074d1a1"><span class="section-number-3">1.3</span> aand</h3>
+<div id="outline-container-org61e6c15" class="outline-3">
+<h3 id="org61e6c15"><span class="section-number-3">1.3</span> aand</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orgfb6ada3" class="outline-4">
-<h4 id="orgfb6ada3"><span class="section-number-4">1.3.1</span> definition</h4>
+<div id="outline-container-org2dfc1c2" class="outline-4">
+<h4 id="org2dfc1c2"><span class="section-number-4">1.3.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orge779b5a">(<span class="org-keyword">defmacro</span> <span class="org-function-name">aand</span> (<span class="org-type">&amp;rest</span> args)
+<pre class="src src-lisp" id="orge012295">(<span class="org-keyword">defmacro</span> <span class="org-function-name">aand</span> (<span class="org-type">&amp;rest</span> args)
   (<span class="org-keyword">cond</span> ((null args) t)
         ((null (cdr args)) (car args))
         (t `(aif ,(car args) (aand ,@(cdr args))))))
@@ -473,8 +497,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgc3e99c9" class="outline-4">
-<h4 id="orgc3e99c9"><span class="section-number-4">1.3.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org65507f2" class="outline-4">
+<h4 id="org65507f2"><span class="section-number-4">1.3.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -483,15 +507,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org457d438" class="outline-3">
-<h3 id="org457d438"><span class="section-number-3">1.4</span> acond</h3>
+<div id="outline-container-org3609d39" class="outline-3">
+<h3 id="org3609d39"><span class="section-number-3">1.4</span> acond</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-orgd86130a" class="outline-4">
-<h4 id="orgd86130a"><span class="section-number-4">1.4.1</span> definition</h4>
+<div id="outline-container-org39eaa1a" class="outline-4">
+<h4 id="org39eaa1a"><span class="section-number-4">1.4.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org66e418a">(<span class="org-keyword">defmacro</span> <span class="org-function-name">acond</span> (<span class="org-type">&amp;rest</span> clauses)
+<pre class="src src-lisp" id="org352ba03">(<span class="org-keyword">defmacro</span> <span class="org-function-name">acond</span> (<span class="org-type">&amp;rest</span> clauses)
   (<span class="org-keyword">if</span> (null clauses)
       nil
       (<span class="org-keyword">let</span> ((cl1 (car clauses))
@@ -504,8 +528,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org9641365" class="outline-4">
-<h4 id="org9641365"><span class="section-number-4">1.4.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org18c6f54" class="outline-4">
+<h4 id="org18c6f54"><span class="section-number-4">1.4.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -514,23 +538,23 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orga43d557" class="outline-3">
-<h3 id="orga43d557"><span class="section-number-3">1.5</span> alambda</h3>
+<div id="outline-container-org0bc3351" class="outline-3">
+<h3 id="org0bc3351"><span class="section-number-3">1.5</span> alambda</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-org7fa0f6b" class="outline-4">
-<h4 id="org7fa0f6b"><span class="section-number-4">1.5.1</span> definition</h4>
+<div id="outline-container-org623a657" class="outline-4">
+<h4 id="org623a657"><span class="section-number-4">1.5.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-5-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org9af13dc">(<span class="org-keyword">defmacro</span> <span class="org-function-name">alambda</span> (parms <span class="org-type">&amp;body</span> body)
+<pre class="src src-lisp" id="orgf30073b">(<span class="org-keyword">defmacro</span> <span class="org-function-name">alambda</span> (parms <span class="org-type">&amp;body</span> body)
   `(<span class="org-keyword">labels</span> ((self ,parms ,@body))
      #'self))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf2ec60b" class="outline-4">
-<h4 id="orgf2ec60b"><span class="section-number-4">1.5.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orgaa3f980" class="outline-4">
+<h4 id="orgaa3f980"><span class="section-number-4">1.5.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-1-5-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -539,15 +563,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgc1f83ad" class="outline-3">
-<h3 id="orgc1f83ad"><span class="section-number-3">1.6</span> ablock</h3>
+<div id="outline-container-orgce7ab26" class="outline-3">
+<h3 id="orgce7ab26"><span class="section-number-3">1.6</span> ablock</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org98966e2" class="outline-4">
-<h4 id="org98966e2"><span class="section-number-4">1.6.1</span> definition</h4>
+<div id="outline-container-org850be4a" class="outline-4">
+<h4 id="org850be4a"><span class="section-number-4">1.6.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgf335973">(<span class="org-keyword">defmacro</span> <span class="org-function-name">alambda</span> (parms <span class="org-type">&amp;body</span> body)
+<pre class="src src-lisp" id="orge158e57">(<span class="org-keyword">defmacro</span> <span class="org-function-name">alambda</span> (parms <span class="org-type">&amp;body</span> body)
   `(<span class="org-keyword">labels</span> ((self ,parms ,@body))
      #'self))
 
@@ -564,8 +588,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgce57b8a" class="outline-4">
-<h4 id="orgce57b8a"><span class="section-number-4">1.6.2</span> usage</h4>
+<div id="outline-container-orgda67108" class="outline-4">
+<h4 id="orgda67108"><span class="section-number-4">1.6.2</span> usage</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -574,23 +598,23 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgcf14352" class="outline-3">
-<h3 id="orgcf14352"><span class="section-number-3">1.7</span> amap</h3>
+<div id="outline-container-orgbe35808" class="outline-3">
+<h3 id="orgbe35808"><span class="section-number-3">1.7</span> amap</h3>
 <div class="outline-text-3" id="text-1-7">
 </div>
-<div id="outline-container-org25081b5" class="outline-4">
-<h4 id="org25081b5"><span class="section-number-4">1.7.1</span> definition</h4>
+<div id="outline-container-orgac33902" class="outline-4">
+<h4 id="orgac33902"><span class="section-number-4">1.7.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org20bfcc4">(<span class="org-keyword">defmacro</span> <span class="org-function-name">alambda</span> (parms <span class="org-type">&amp;body</span> body)
+<pre class="src src-lisp" id="orgdaf6440">(<span class="org-keyword">defmacro</span> <span class="org-function-name">alambda</span> (parms <span class="org-type">&amp;body</span> body)
   `(<span class="org-keyword">labels</span> ((self ,parms ,@body))
      #'self))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgbf7e255" class="outline-4">
-<h4 id="orgbf7e255"><span class="section-number-4">1.7.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orgb8d07ff" class="outline-4">
+<h4 id="orgb8d07ff"><span class="section-number-4">1.7.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-1-7-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -599,23 +623,23 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgaa93c7d" class="outline-3">
-<h3 id="orgaa93c7d"><span class="section-number-3">1.8</span> aevery</h3>
+<div id="outline-container-orgd2c1f16" class="outline-3">
+<h3 id="orgd2c1f16"><span class="section-number-3">1.8</span> aevery</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-org71c1295" class="outline-4">
-<h4 id="org71c1295"><span class="section-number-4">1.8.1</span> definition</h4>
+<div id="outline-container-orga64c0a8" class="outline-4">
+<h4 id="orga64c0a8"><span class="section-number-4">1.8.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgd092202">(<span class="org-keyword">defmacro</span> <span class="org-function-name">aevery</span> (form list)
+<pre class="src src-lisp" id="org7a78cdd">(<span class="org-keyword">defmacro</span> <span class="org-function-name">aevery</span> (form list)
   `(every #'(<span class="org-keyword">lambda</span> (it) ,form) ,list))
 
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orga098cc0" class="outline-4">
-<h4 id="orga098cc0"><span class="section-number-4">1.8.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org1c35d9c" class="outline-4">
+<h4 id="org1c35d9c"><span class="section-number-4">1.8.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -624,22 +648,22 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org27127ee" class="outline-3">
-<h3 id="org27127ee"><span class="section-number-3">1.9</span> areduce</h3>
+<div id="outline-container-orgd41f1b5" class="outline-3">
+<h3 id="orgd41f1b5"><span class="section-number-3">1.9</span> areduce</h3>
 <div class="outline-text-3" id="text-1-9">
 </div>
-<div id="outline-container-org1b61df0" class="outline-4">
-<h4 id="org1b61df0"><span class="section-number-4">1.9.1</span> definition</h4>
+<div id="outline-container-org4abcb9a" class="outline-4">
+<h4 id="org4abcb9a"><span class="section-number-4">1.9.1</span> definition</h4>
 <div class="outline-text-4" id="text-1-9-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org450a81c">(<span class="org-keyword">defmacro</span> <span class="org-function-name">areduce</span> (form list <span class="org-type">&amp;key</span> initial-value)
+<pre class="src src-lisp" id="org706e114">(<span class="org-keyword">defmacro</span> <span class="org-function-name">areduce</span> (form list <span class="org-type">&amp;key</span> initial-value)
   `(reduce #'(<span class="org-keyword">lambda</span> (it-accum it) ,form) ,list <span class="org-builtin">:initial-value</span> ,initial-value))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org664889a" class="outline-4">
-<h4 id="org664889a"><span class="section-number-4">1.9.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orgd5a11a4" class="outline-4">
+<h4 id="orgd5a11a4"><span class="section-number-4">1.9.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-1-9-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -649,26 +673,26 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org110a9e8" class="outline-2">
-<h2 id="org110a9e8"><span class="section-number-2">2</span> string</h2>
+<div id="outline-container-orgec73dbe" class="outline-2">
+<h2 id="orgec73dbe"><span class="section-number-2">2</span> string</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org4328e6d" class="outline-3">
-<h3 id="org4328e6d"><span class="section-number-3">2.1</span> string+</h3>
+<div id="outline-container-org3d64826" class="outline-3">
+<h3 id="org3d64826"><span class="section-number-3">2.1</span> string+</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-orgebcc601" class="outline-4">
-<h4 id="orgebcc601"><span class="section-number-4">2.1.1</span> definition</h4>
+<div id="outline-container-org3f76adb" class="outline-4">
+<h4 id="org3f76adb"><span class="section-number-4">2.1.1</span> definition</h4>
 <div class="outline-text-4" id="text-2-1-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgea5747c">(<span class="org-keyword">defmacro</span> <span class="org-function-name">string+</span> (<span class="org-type">&amp;rest</span> str)
+<pre class="src src-lisp" id="org954c9a8">(<span class="org-keyword">defmacro</span> <span class="org-function-name">string+</span> (<span class="org-type">&amp;rest</span> str)
   `(concatenate 'string ,@str))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgaad17ba" class="outline-4">
-<h4 id="orgaad17ba"><span class="section-number-4">2.1.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orgf2ac3eb" class="outline-4">
+<h4 id="orgf2ac3eb"><span class="section-number-4">2.1.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-2-1-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -677,22 +701,22 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgfd9cca4" class="outline-3">
-<h3 id="orgfd9cca4"><span class="section-number-3">2.2</span> every-string=</h3>
+<div id="outline-container-orgb8c7060" class="outline-3">
+<h3 id="orgb8c7060"><span class="section-number-3">2.2</span> every-string=</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org27ece91" class="outline-4">
-<h4 id="org27ece91"><span class="section-number-4">2.2.1</span> definition</h4>
+<div id="outline-container-org1aad49d" class="outline-4">
+<h4 id="org1aad49d"><span class="section-number-4">2.2.1</span> definition</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgbd82642">(<span class="org-keyword">defmacro</span> <span class="org-function-name">every-string=</span> (c sequence)
+<pre class="src src-lisp" id="org8e46a06">(<span class="org-keyword">defmacro</span> <span class="org-function-name">every-string=</span> (c sequence)
   `(aevery (string= it ,c) ,sequence))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org55d01a9" class="outline-4">
-<h4 id="org55d01a9"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orgfe658c5" class="outline-4">
+<h4 id="orgfe658c5"><span class="section-number-4">2.2.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-2-2-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -702,26 +726,26 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org8da1b0d" class="outline-2">
-<h2 id="org8da1b0d"><span class="section-number-2">3</span> char</h2>
+<div id="outline-container-orgde2e8b5" class="outline-2">
+<h2 id="orgde2e8b5"><span class="section-number-2">3</span> char</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org169806e" class="outline-3">
-<h3 id="org169806e"><span class="section-number-3">3.1</span> char+</h3>
+<div id="outline-container-orge19ea81" class="outline-3">
+<h3 id="orge19ea81"><span class="section-number-3">3.1</span> char+</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orge3239b7" class="outline-4">
-<h4 id="orge3239b7"><span class="section-number-4">3.1.1</span> definition</h4>
+<div id="outline-container-org73ae460" class="outline-4">
+<h4 id="org73ae460"><span class="section-number-4">3.1.1</span> definition</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgdadb798">(<span class="org-keyword">defmacro</span> <span class="org-function-name">char-1+</span> (char)
+<pre class="src src-lisp" id="org2bff22b">(<span class="org-keyword">defmacro</span> <span class="org-function-name">char-1+</span> (char)
   `(code-char (1+ (char-code ,char))))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org3b87e7d" class="outline-4">
-<h4 id="org3b87e7d"><span class="section-number-4">3.1.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orgd70a56b" class="outline-4">
+<h4 id="orgd70a56b"><span class="section-number-4">3.1.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -730,22 +754,22 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgd4eb111" class="outline-3">
-<h3 id="orgd4eb111"><span class="section-number-3">3.2</span> char-code+</h3>
+<div id="outline-container-org0a467bf" class="outline-3">
+<h3 id="org0a467bf"><span class="section-number-3">3.2</span> char-code+</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-org385adb3" class="outline-4">
-<h4 id="org385adb3"><span class="section-number-4">3.2.1</span> definition</h4>
+<div id="outline-container-org7b802ae" class="outline-4">
+<h4 id="org7b802ae"><span class="section-number-4">3.2.1</span> definition</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org1149ae5">(<span class="org-keyword">defmacro</span> <span class="org-function-name">char-code+</span> (char num)
+<pre class="src src-lisp" id="org5d3ece7">(<span class="org-keyword">defmacro</span> <span class="org-function-name">char-code+</span> (char num)
   `(code-char (+ (char-code ,char) ,num)))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf159919" class="outline-4">
-<h4 id="orgf159919"><span class="section-number-4">3.2.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orgc692534" class="outline-4">
+<h4 id="orgc692534"><span class="section-number-4">3.2.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -755,19 +779,19 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org06008ae" class="outline-2">
-<h2 id="org06008ae"><span class="section-number-2">4</span> awesome</h2>
+<div id="outline-container-org722941c" class="outline-2">
+<h2 id="org722941c"><span class="section-number-2">4</span> awesome</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org632390b" class="outline-3">
-<h3 id="org632390b"><span class="section-number-3">4.1</span> nested-loops</h3>
+<div id="outline-container-orgafc4222" class="outline-3">
+<h3 id="orgafc4222"><span class="section-number-3">4.1</span> nested-loops</h3>
 <div class="outline-text-3" id="text-4-1">
 </div>
-<div id="outline-container-orga6ff16f" class="outline-4">
-<h4 id="orga6ff16f"><span class="section-number-4">4.1.1</span> definition</h4>
+<div id="outline-container-org5bc4edc" class="outline-4">
+<h4 id="org5bc4edc"><span class="section-number-4">4.1.1</span> definition</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org25f63d7">(<span class="org-keyword">defmacro</span> <span class="org-function-name">nested-loops</span> (vars values <span class="org-type">&amp;rest</span> body)
+<pre class="src src-lisp" id="org2904a7d">(<span class="org-keyword">defmacro</span> <span class="org-function-name">nested-loops</span> (vars values <span class="org-type">&amp;rest</span> body)
   (<span class="org-keyword">if</span> vars
       `(<span class="org-keyword">loop</span> <span class="org-builtin">:for</span> ,(first vars) <span class="org-builtin">:from</span> ,(car (first values)) <span class="org-builtin">:to</span> ,(cdr (first values))
              <span class="org-builtin">:do</span> (nested-loops ,(rest vars) ,(rest values) ,@body))
@@ -776,49 +800,50 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org646559c" class="outline-4">
-<h4 id="org646559c"><span class="section-number-4">4.1.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org25ce4c2" class="outline-4">
+<h4 id="org25ce4c2"><span class="section-number-4">4.1.2</span> usage</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <div class="org-src-container">
-<pre class="src src-lisp">
+<pre class="src src-lisp">(nested-loops (x y) ((1 . 2) (1 . 2))
+              (princ (* x y)))
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org5b25267" class="outline-3">
-<h3 id="org5b25267"><span class="section-number-3">4.2</span> nested-nth</h3>
+<div id="outline-container-org849a85d" class="outline-3">
+<h3 id="org849a85d"><span class="section-number-3">4.2</span> nested-nth</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
-<div id="outline-container-org4d026d2" class="outline-4">
-<h4 id="org4d026d2"><span class="section-number-4">4.2.1</span> definition</h4>
+<div id="outline-container-org6aefc52" class="outline-4">
+<h4 id="org6aefc52"><span class="section-number-4">4.2.1</span> definition</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgd3bfab2">(<span class="org-keyword">defmacro</span> <span class="org-function-name">nested-nth</span> (idxs my-lst)
+<pre class="src src-lisp" id="org9eb68ca">(<span class="org-keyword">defmacro</span> <span class="org-function-name">nested-nth</span> (idxs my-lst)
   `(<span class="org-keyword">if</span> ,idxs (nth (car (reverse ,idxs)) (nested-nth (cdr (reverse ,idxs)) ,my-lst)) ,my-lst))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org1bc2d10" class="outline-4">
-<h4 id="org1bc2d10"><span class="section-number-4">4.2.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org91be895" class="outline-4">
+<h4 id="org91be895"><span class="section-number-4">4.2.2</span> usage</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <div class="org-src-container">
-<pre class="src src-lisp">
+<pre class="src src-lisp">(nested-nth '(1 1) '(1 (1 2)))
 </pre>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org374c7e4" class="outline-3">
-<h3 id="org374c7e4"><span class="section-number-3">4.3</span> get-even-list</h3>
+<div id="outline-container-orgbcbdf0b" class="outline-3">
+<h3 id="orgbcbdf0b"><span class="section-number-3">4.3</span> get-even-list</h3>
 <div class="outline-text-3" id="text-4-3">
 </div>
-<div id="outline-container-orga0ef7a4" class="outline-4">
-<h4 id="orga0ef7a4"><span class="section-number-4">4.3.1</span> definition</h4>
+<div id="outline-container-orgdbdebf9" class="outline-4">
+<h4 id="orgdbdebf9"><span class="section-number-4">4.3.1</span> definition</h4>
 <div class="outline-text-4" id="text-4-3-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orged96e93">(<span class="org-keyword">defun</span> <span class="org-function-name">get-even-list</span> (lst)
+<pre class="src src-lisp" id="org7b9f2d9">(<span class="org-keyword">defun</span> <span class="org-function-name">get-even-list</span> (lst)
   (<span class="org-keyword">loop</span> <span class="org-builtin">:with</span> return-lst = '()
         <span class="org-builtin">:for</span> index <span class="org-builtin">:from</span> 0 <span class="org-builtin">:below</span> (length lst)
         <span class="org-builtin">:unless</span> (zerop (mod index 2))
@@ -828,8 +853,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org4dfd344" class="outline-4">
-<h4 id="org4dfd344"><span class="section-number-4">4.3.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orga8e4580" class="outline-4">
+<h4 id="orga8e4580"><span class="section-number-4">4.3.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-4-3-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -838,15 +863,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org300f48c" class="outline-3">
-<h3 id="org300f48c"><span class="section-number-3">4.4</span> remove-nth</h3>
+<div id="outline-container-orga227ef7" class="outline-3">
+<h3 id="orga227ef7"><span class="section-number-3">4.4</span> remove-nth</h3>
 <div class="outline-text-3" id="text-4-4">
 </div>
-<div id="outline-container-orgea5f804" class="outline-4">
-<h4 id="orgea5f804"><span class="section-number-4">4.4.1</span> definition</h4>
+<div id="outline-container-org8ff95c7" class="outline-4">
+<h4 id="org8ff95c7"><span class="section-number-4">4.4.1</span> definition</h4>
 <div class="outline-text-4" id="text-4-4-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org02f5d62">(<span class="org-keyword">defun</span> <span class="org-function-name">remove-nth</span> (n list)
+<pre class="src src-lisp" id="org454aa65">(<span class="org-keyword">defun</span> <span class="org-function-name">remove-nth</span> (n list)
   (<span class="org-keyword">declare</span>
     (type (integer 0) n)
     (type list list))
@@ -857,8 +882,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org5066bfe" class="outline-4">
-<h4 id="org5066bfe"><span class="section-number-4">4.4.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-orgce1ff8c" class="outline-4">
+<h4 id="orgce1ff8c"><span class="section-number-4">4.4.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-4-4-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -867,22 +892,22 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgeaebe82" class="outline-3">
-<h3 id="orgeaebe82"><span class="section-number-3">4.5</span> check-bit-frag</h3>
+<div id="outline-container-org3930d06" class="outline-3">
+<h3 id="org3930d06"><span class="section-number-3">4.5</span> check-bit-frag</h3>
 <div class="outline-text-3" id="text-4-5">
 </div>
-<div id="outline-container-org90fdc0a" class="outline-4">
-<h4 id="org90fdc0a"><span class="section-number-4">4.5.1</span> definition</h4>
+<div id="outline-container-org9e67f5f" class="outline-4">
+<h4 id="org9e67f5f"><span class="section-number-4">4.5.1</span> definition</h4>
 <div class="outline-text-4" id="text-4-5-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="orgee2c0cc">(<span class="org-keyword">defun</span> <span class="org-function-name">check-bit-frag</span> (bit index)
+<pre class="src src-lisp" id="org10cb441">(<span class="org-keyword">defun</span> <span class="org-function-name">check-bit-frag</span> (bit index)
   (logand (ash bit (- 0 index)) 1))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org75d955f" class="outline-4">
-<h4 id="org75d955f"><span class="section-number-4">4.5.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org6f3f75e" class="outline-4">
+<h4 id="org6f3f75e"><span class="section-number-4">4.5.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-4-5-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -891,15 +916,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org2ab5323" class="outline-3">
-<h3 id="org2ab5323"><span class="section-number-3">4.6</span> binary-search</h3>
+<div id="outline-container-org06279db" class="outline-3">
+<h3 id="org06279db"><span class="section-number-3">4.6</span> binary-search</h3>
 <div class="outline-text-3" id="text-4-6">
 </div>
-<div id="outline-container-orga6ab1b0" class="outline-4">
-<h4 id="orga6ab1b0"><span class="section-number-4">4.6.1</span> definition</h4>
+<div id="outline-container-orgc5a9323" class="outline-4">
+<h4 id="orgc5a9323"><span class="section-number-4">4.6.1</span> definition</h4>
 <div class="outline-text-4" id="text-4-6-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org7e142b4">(<span class="org-keyword">defun</span> <span class="org-function-name">binary-search</span> (item buffer)
+<pre class="src src-lisp" id="org36e732c">(<span class="org-keyword">defun</span> <span class="org-function-name">binary-search</span> (item buffer)
   (<span class="org-keyword">do</span> ((low 0)
        (high (1- (length buffer))))
       ((&gt; low high))
@@ -912,8 +937,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgebe84bf" class="outline-4">
-<h4 id="orgebe84bf"><span class="section-number-4">4.6.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org93e5183" class="outline-4">
+<h4 id="org93e5183"><span class="section-number-4">4.6.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-4-6-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -922,15 +947,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org7309326" class="outline-3">
-<h3 id="org7309326"><span class="section-number-3">4.7</span> convert-sum-list</h3>
+<div id="outline-container-org236ca49" class="outline-3">
+<h3 id="org236ca49"><span class="section-number-3">4.7</span> convert-sum-list</h3>
 <div class="outline-text-3" id="text-4-7">
 </div>
-<div id="outline-container-org09eda57" class="outline-4">
-<h4 id="org09eda57"><span class="section-number-4">4.7.1</span> definition</h4>
+<div id="outline-container-org60f36b4" class="outline-4">
+<h4 id="org60f36b4"><span class="section-number-4">4.7.1</span> definition</h4>
 <div class="outline-text-4" id="text-4-7-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org50a6b7c">(<span class="org-keyword">defun</span> <span class="org-function-name">convert-sum-list</span> (lst)
+<pre class="src src-lisp" id="org1cec3f2">(<span class="org-keyword">defun</span> <span class="org-function-name">convert-sum-list</span> (lst)
   (cdr (reduce #'(<span class="org-keyword">lambda</span> (accum elm)
                    (append accum (list (+ (car (last accum)) elm))))
                lst
@@ -939,8 +964,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-orgcf21e17" class="outline-4">
-<h4 id="orgcf21e17"><span class="section-number-4">4.7.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org8a34328" class="outline-4">
+<h4 id="org8a34328"><span class="section-number-4">4.7.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-4-7-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
@@ -949,15 +974,15 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org0d03354" class="outline-3">
-<h3 id="org0d03354"><span class="section-number-3">4.8</span> while</h3>
+<div id="outline-container-org2532eaf" class="outline-3">
+<h3 id="org2532eaf"><span class="section-number-3">4.8</span> while</h3>
 <div class="outline-text-3" id="text-4-8">
 </div>
-<div id="outline-container-org0020358" class="outline-4">
-<h4 id="org0020358"><span class="section-number-4">4.8.1</span> definition</h4>
+<div id="outline-container-org0ae5861" class="outline-4">
+<h4 id="org0ae5861"><span class="section-number-4">4.8.1</span> definition</h4>
 <div class="outline-text-4" id="text-4-8-1">
 <div class="org-src-container">
-<pre class="src src-lisp" id="org532cc84">(<span class="org-keyword">defmacro</span> <span class="org-function-name">while</span> (test <span class="org-type">&amp;body</span> body)
+<pre class="src src-lisp" id="org826b3f9">(<span class="org-keyword">defmacro</span> <span class="org-function-name">while</span> (test <span class="org-type">&amp;body</span> body)
   `(<span class="org-keyword">do</span> ()
      ((not ,test))
      ,@body))
@@ -965,11 +990,109 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org19e7c5d" class="outline-4">
-<h4 id="org19e7c5d"><span class="section-number-4">4.8.2</span> <span class="todo TODO">TODO</span> usage</h4>
+<div id="outline-container-org6030a01" class="outline-4">
+<h4 id="org6030a01"><span class="section-number-4">4.8.2</span> <span class="todo TODO">TODO</span> usage</h4>
 <div class="outline-text-4" id="text-4-8-2">
 <div class="org-src-container">
 <pre class="src src-lisp">
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcbb45f9" class="outline-3">
+<h3 id="orgcbb45f9"><span class="section-number-3">4.9</span> 等差数列の和</h3>
+<div class="outline-text-3" id="text-4-9">
+</div>
+<div id="outline-container-org6e74ec3" class="outline-4">
+<h4 id="org6e74ec3"><span class="section-number-4">4.9.1</span> definition</h4>
+<div class="outline-text-4" id="text-4-9-1">
+<div class="org-src-container">
+<pre class="src src-lisp" id="org8a6c7ca">(<span class="org-keyword">defun</span> <span class="org-function-name">arithmetic-progression-sum</span> (a b)
+  (<span class="org-keyword">let</span> ((n (1+ (- b a))))
+    (+ (* n (1- a))
+       (/ (* n (1+ n)) 2))))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb37722e" class="outline-4">
+<h4 id="orgb37722e"><span class="section-number-4">4.9.2</span> usage</h4>
+<div class="outline-text-4" id="text-4-9-2">
+<div class="org-src-container">
+<pre class="src src-lisp">(arithmetic-progression-sum 2 8) <span class="org-comment-delimiter">;; </span><span class="org-comment">=&gt; 35</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orga670c7d" class="outline-3">
+<h3 id="orga670c7d"><span class="section-number-3">4.10</span> マンハッタン距離</h3>
+<div class="outline-text-3" id="text-4-10">
+</div>
+<div id="outline-container-orgf2075d2" class="outline-4">
+<h4 id="orgf2075d2"><span class="section-number-4">4.10.1</span> definition</h4>
+<div class="outline-text-4" id="text-4-10-1">
+<div class="org-src-container">
+<pre class="src src-lisp" id="org6d1a01d">(<span class="org-keyword">defun</span> <span class="org-function-name">manhattan-distance</span> (lst)
+  (reduce #'+ (mapcar #'abs lst)))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org4d3c1f1" class="outline-4">
+<h4 id="org4d3c1f1"><span class="section-number-4">4.10.2</span> usage</h4>
+<div class="outline-text-4" id="text-4-10-2">
+<div class="org-src-container">
+<pre class="src src-lisp">(manhattan-distance '(3 -1 -4 1 -5 9 2 -6 5 -3)) <span class="org-comment-delimiter">;; </span><span class="org-comment">=&gt; 39</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org28bbd03" class="outline-3">
+<h3 id="org28bbd03"><span class="section-number-3">4.11</span> ユークリッド距離</h3>
+<div class="outline-text-3" id="text-4-11">
+</div>
+<div id="outline-container-orgf478273" class="outline-4">
+<h4 id="orgf478273"><span class="section-number-4">4.11.1</span> definition</h4>
+<div class="outline-text-4" id="text-4-11-1">
+<div class="org-src-container">
+<pre class="src src-lisp" id="orgf399df0">(<span class="org-keyword">defun</span> <span class="org-function-name">euclidean-distance</span> (lst)
+  (sqrt (reduce #'+ (mapcar #'(<span class="org-keyword">lambda</span> (x) (coerce (* x x) 'double-float)) lst))))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5b525b9" class="outline-4">
+<h4 id="org5b525b9"><span class="section-number-4">4.11.2</span> usage</h4>
+<div class="outline-text-4" id="text-4-11-2">
+<div class="org-src-container">
+<pre class="src src-lisp">(euclidean-distance '(3 -1 -4 1 -5 9 2 -6 5 -3)) <span class="org-comment-delimiter">;; </span><span class="org-comment">=&gt; 14.387494569938159</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org64fcaba" class="outline-3">
+<h3 id="org64fcaba"><span class="section-number-3">4.12</span> チェビシェフ距離</h3>
+<div class="outline-text-3" id="text-4-12">
+</div>
+<div id="outline-container-orgabb49de" class="outline-4">
+<h4 id="orgabb49de"><span class="section-number-4">4.12.1</span> definition</h4>
+<div class="outline-text-4" id="text-4-12-1">
+<div class="org-src-container">
+<pre class="src src-lisp" id="org14aaa19">(<span class="org-keyword">defun</span> <span class="org-function-name">chebyshev-distance</span> (lst)
+  (reduce #'max (mapcar #'abs lst)))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf506cbf" class="outline-4">
+<h4 id="orgf506cbf"><span class="section-number-4">4.12.2</span> usage</h4>
+<div class="outline-text-4" id="text-4-12-2">
+<div class="org-src-container">
+<pre class="src src-lisp">(chebyshev-distance '(3 -1 -4 1 -5 9 2 -6 5 -3)) <span class="org-comment-delimiter">;; </span><span class="org-comment">=&gt; 9</span>
 </pre>
 </div>
 </div>
@@ -979,7 +1102,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: takeounn</p>
-<p class="date">Created: 2020-10-17 Sat 16:50</p>
+<p class="date">Created: 2020-11-07 Sat 01:50</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
