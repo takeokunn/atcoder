@@ -146,6 +146,69 @@
 *** TODO usage
     #+BEGIN_SRC lisp
     #+END_SRC
+** string-case
+*** definition
+    #+name: string-case
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro string-case (my-condition my-lst)
+        `(cond ,@(mapcar #'(lambda (x)
+                             `((string= ,my-condition ,(car x)) ,(cadr x)))
+                         my-lst)))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (string-case "Sunny"
+                   (("Sunny" (progn (print "Cloudy")))
+                    ("Cloudy" "Rainy")
+                    ("Rainy" "Sunny")))
+    #+END_SRC
+** string-case
+*** definition
+    #+name: string-case
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro string-case (my-condition my-lst)
+        `(cond ,@(mapcar #'(lambda (x)
+                             `((string= ,my-condition ,(car x)) ,(cadr x)))
+                         my-lst)))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (string-case "Sunny"
+                   (("Sunny" "Cloudy")
+                    ("Cloudy" "Rainy")
+                    ("Rainy" "Sunny"))) ;; => "Cloudy"
+    #+END_SRC
+** split-string
+*** definition
+    #+name: split-string
+    #+BEGIN_SRC lisp :noweb yes
+      (defun split-string (string split)
+        (loop :for i = 0 :then (1+ j)
+              :as j = (position split string :start i)
+              :collect (subseq string i j)
+              :while j))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (split-string "2019/04/30" #\/) ;; => ("2019" "04" "30")
+    #+END_SRC
+** shift-string
+*** definition
+    #+name: shift-string
+    #+BEGIN_SRC lisp :noweb yes
+      (defun shift-string (str shift)
+        (map 'string
+             #'(lambda (c)
+                 (code-char
+                  (+
+                   (mod (+ (- (char-int c) (char-int #\A)) shift) 26)
+                   (char-int #\A))))
+             str))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (shift-string "ABCXYZ" 2)
+    #+END_SRC
 * char
 ** char+
 *** definition
@@ -167,7 +230,23 @@
 *** TODO usage
     #+BEGIN_SRC lisp
     #+END_SRC
-* awesome
+** char-case
+*** definition
+    #+name: char-case
+    #+BEGIN_SRC lisp :noweb yes
+      (defmacro char-case (my-condition my-lst)
+        `(cond ,@(mapcar #'(lambda (x)
+                             `((char= ,my-condition ,(car x)) ,(cadr x)))
+                         my-lst)))
+    #+END_SRC
+*** usage
+    #+BEGIN_SRC lisp
+      (char-case #\1
+                 ((#\1 #\9)
+                  (#\9 #\1)
+                  (t x))) ;; => #\9
+    #+END_SRC
+* utility
 ** nested-loops
 *** definition
     #+name: nested-loops
@@ -233,19 +312,14 @@
 *** TODO usage
     #+BEGIN_SRC lisp
     #+END_SRC
-** binary-search
+** while
 *** definition
-    #+name: binary-search
+    #+name: while
     #+BEGIN_SRC lisp :noweb yes
-      (defun binary-search (item buffer)
-        (do ((low 0)
-             (high (1- (length buffer))))
-            ((> low high))
-          (let ((mid (floor (+ low high) 2)))
-            (cond
-              ((= (nth mid buffer) item) (return mid))
-              ((< (nth mid buffer) item) (setq low (1+ mid)))
-              (t (setq high (1- mid)))))))
+      (defmacro while (test &body body)
+        `(do ()
+           ((not ,test))
+           ,@body))
     #+END_SRC
 *** TODO usage
     #+BEGIN_SRC lisp
@@ -263,14 +337,20 @@
 *** TODO usage
     #+BEGIN_SRC lisp
     #+END_SRC
-** while
+* algorithms
+** binary-search
 *** definition
-    #+name: while
+    #+name: binary-search
     #+BEGIN_SRC lisp :noweb yes
-      (defmacro while (test &body body)
-        `(do ()
-           ((not ,test))
-           ,@body))
+      (defun binary-search (item buffer)
+        (do ((low 0)
+             (high (1- (length buffer))))
+            ((> low high))
+          (let ((mid (floor (+ low high) 2)))
+            (cond
+              ((= (nth mid buffer) item) (return mid))
+              ((< (nth mid buffer) item) (setq low (1+ mid)))
+              (t (setq high (1- mid)))))))
     #+END_SRC
 *** TODO usage
     #+BEGIN_SRC lisp
